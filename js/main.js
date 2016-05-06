@@ -6,6 +6,16 @@
 //
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
+var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+var searchPhotos = function(tags){
+
+  $("button").click(function(){
+    $.getJSON("demo_ajax_json.js", function(result){
+        $.each(result, function(i, field){
+            $("div").append(field + " ");
+        });
+    });
+});
     // Place your code here, inside the document ready handler.
 
     // Create a function called `searchImages()`. This function will handle the
