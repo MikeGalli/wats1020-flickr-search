@@ -26,7 +26,7 @@ var searchPhotos = function(tags){
       })
         .done(function( data ) {
           $.each( data.items, function( i, item ) {
-            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#imageZZ" );
             if ( i === 3 ) {
               return false;
             }
