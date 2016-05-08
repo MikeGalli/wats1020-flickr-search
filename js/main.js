@@ -7,7 +7,7 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    $.getJSON("http://api.flickr.com/services/feeds/groups_pool .gne?id=675729@N22&lang=en-us&format=json&jsoncallback=?", function(data){
+    $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";, function(data){
   $.each(data.items, function(i,item){
     $("<img/>").attr("src", item.media.m).appendTo("#images")
       .wrap("<a href='" + item.link + "'></a>");
