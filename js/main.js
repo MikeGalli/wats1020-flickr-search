@@ -10,7 +10,7 @@ $(document).on('ready', function(){
     (function() {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
       $.getJSON( flickerAPI, {
-        tags: tags,
+        tags: "mount rainier",
         tagmode: "any",
         format: "json"
       })
