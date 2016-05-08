@@ -7,12 +7,22 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";, function(data){
-  $.each(data.items, function(i,item){
-    $("<img/>").attr("src", item.media.m).appendTo("#images")
-      .wrap("<a href='" + item.link + "'></a>");
-  });
-});
+    (function() {
+      var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+      $.getJSON( flickerAPI, {
+        tags: "mount rainier",
+        tagmode: "any",
+        format: "json"
+      })
+        .done(function( data ) {
+          $.each( data.items, function( i, item ) {
+            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+            if ( i === 3 ) {
+              return false;
+            }
+          });
+        });
+    })();
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
