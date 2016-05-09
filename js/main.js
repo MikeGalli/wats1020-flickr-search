@@ -7,10 +7,10 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    (function() {
+    (function(tags) {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
       $.getJSON( flickerAPI, {
-        tags: "mount rainier",
+        tags: tags,
         tagmode: "any",
         format: "json"
       })
