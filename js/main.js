@@ -9,14 +9,13 @@ $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
     var searchImages = function(tags) {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-      $.getJSON( flickerAPI, {
+      $.getJSON(flickerAPI, {
         tags: tags,
         tagmode: "any",
         format: "json"
       }).done(function(data) {
           $.each( data.items, function( i, item ) {
             var newListItem = $("<li>");
-          //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
             var image = item.media.m;
             var title = item.title;
             var date_taken = item.date_taken;
@@ -29,12 +28,7 @@ $(document).on('ready', function(){
             description.appendTo(newListItem);
             author.appendTo(newListItem);
             link.appendTo(newListItem);
-            //$( "<img>").append("<div class='col-xs-4'");
-
-            //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-
-          //  $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
-
+        console.log(newListItem);
           });
         });
     }();
