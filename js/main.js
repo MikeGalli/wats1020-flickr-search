@@ -7,7 +7,7 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    var xxx = (function(tags) {
+    (function(tags) {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
       $.getJSON( flickerAPI, {
         tags: tags,
@@ -17,16 +17,12 @@ $(document).on('ready', function(){
         .done(function( data ) {
           $.each( data.items, function( i, item ) {
             $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-              var image = item.media.m;
-              var title = item.title;
-              var date_taken = item.date_taken;
-              var description = item.description;
-              var author = item.author;
-              var link = item.link;
-            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
+            if ( i === 3 ) {
+              return false;
+            }
           });
         });
-    });
+    })();
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
