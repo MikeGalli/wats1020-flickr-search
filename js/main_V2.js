@@ -33,15 +33,6 @@ $(document).on('ready', function(){
           });
         });
     })();
-
-
-    $( "#flickr-button" ).click(function() {
-    event.preventDefault();  // prevent button from submitting
-
-    var tagName = document.getElementById('flickr-tag').value;  // get value of Flicker search input field
-
-    searchImages(tagName);  // execute searchImages function
-  });
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
