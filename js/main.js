@@ -15,6 +15,7 @@ $(document).on('ready', function(){
         format: "json"
       }).done(function(data) {
           $.each( data.items, function( i, item ) {
+            var newListItem = $("<li>")
           //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
             var image = item.media.m;
             var title = item.title;
@@ -22,12 +23,17 @@ $(document).on('ready', function(){
             var description = item.description;
             var author = item.author;
             var link = item.link;
-
+            image.appendTo(newListItem);
+            title.appendTo(newListItem);
+            date_taken.appendTo(newListItem);
+            description.appendTo(newListItem);
+            author.appendTo(newListItem);
+            link.appendTo(newListItem);
             //$( "<img>").append("<div class='col-xs-4'");
 
             //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
 
-            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
+          //  $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
 
           });
         });
