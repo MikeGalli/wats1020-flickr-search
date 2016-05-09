@@ -11,7 +11,7 @@
 $(document).on('ready', function(){
   var searchImages = function(tags) {
     var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-    console.log(tags);
+    console.log(tags) + "tags";
     $('#images').innerHTML = '<li class="search-throbber">Searching...</li>';
     $.getJSON( flickrAPI, {
       tags: tags,
