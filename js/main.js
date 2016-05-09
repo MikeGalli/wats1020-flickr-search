@@ -27,13 +27,13 @@ $(document).on('ready', function(){
           var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
 
           // Button only needed if you're doing the modal
-          var newButton = $("<button class='btn btn-sm btn-primary'>enlarge</button>").attr({
-            'data-title': item.title,
-            'data-toggle': "modal",
-            'data-target': "#infoModal",
-            'data-imgsrc': item.media.m,
-            'data-description': item.description,
-            'type': "button"
+          //var newButton = $("<button class='btn btn-sm btn-primary'>enlarge</button>").attr({
+            //'data-title': item.title,
+            //'data-toggle': "modal",
+            //'data-target': "#infoModal",
+            //'data-imgsrc': item.media.m,
+            //'data-description': item.description,
+          //  'type': "button"
           }).appendTo(newListItem);
           newListItem.appendTo( "#images" );
           if ( i === 15 ) {
