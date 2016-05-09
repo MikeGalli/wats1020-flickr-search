@@ -2,7 +2,9 @@
    Author's custom styles
    ========================================================================== */
 
-/* Enable these styles if you wish to go into a grid layout.*/
+/* Enable these styles if you wish to go into a grid layout. */
+
+
 ul#images ul {
     width: 26%;
     height: 500px;
@@ -29,6 +31,13 @@ ul#images li button {
 
 ul#images {
     list-style-type: none;
+}
+
+ul#images ul {
+    list-style-type: none;
+    background-color: #008CBA;
+    margin: 20px;
+    padding: 10px;
 }
 
 ul#images .placeholder {
