@@ -16,7 +16,7 @@ $(document).on('ready', function(){
       })
         .done(function( data ) {
           $.each( data.items, function( i, item ) {
-            $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+          //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
             var image = item.media.m;
             var title = item.title;
             var date_taken = item.date_taken;
@@ -28,12 +28,7 @@ $(document).on('ready', function(){
 
             //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
 
-            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li>
-            <li>" + "Date taken: "+ date_taken + "</li>
-            <li>" + "Description: "+ description + "</li>
-            <li>" + "Author: "+ author + "</li>
-            <li>" + "Link: "+ link + "</li>
-            </ul>");
+            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
 
           });
         });
