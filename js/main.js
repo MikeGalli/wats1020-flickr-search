@@ -7,7 +7,7 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    var searchImages = function(tags) {
+    (var searchImages = function(tags) {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
       $.getJSON( flickerAPI, {
         tags: tags,
@@ -32,7 +32,7 @@ $(document).on('ready', function(){
 
           });
         });
-    }();
+    })();
 
 
     $('button.search').on('click', function(event){
