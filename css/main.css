@@ -4,7 +4,7 @@
 
 /* Enable these styles if you wish to go into a grid layout.*/
 ul#images ul {
-    width: 30%;
+    width: 20%;
     height: 200px;
     display: inline-block;
     position: relative;
@@ -17,7 +17,7 @@ ul#images li img {
     height: auto;
 }
 
-/*ul#images li button {
+ul#images ul li {
     display: inline-block;
 }
 
