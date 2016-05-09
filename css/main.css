@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* Enable these styles if you wish to go into a grid layout.*/
-ul#images li {
+ul#images ul {
     width: 30%;
     height: 200px;
     display: inline-block;
