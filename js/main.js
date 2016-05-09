@@ -34,7 +34,7 @@ $(document).on('ready', function(){
             //'data-imgsrc': item.media.m,
             //'data-description': item.description,
           //  'type': "button"
-          }).appendTo(newListItem);
+          //}).appendTo(newListItem);
           newListItem.appendTo( "#images" );
           if ( i === 15 ) {
             return false;
@@ -43,12 +43,12 @@ $(document).on('ready', function(){
       });
     };
 
-    $('button.search').on('click', function(event){
-      event.preventDefault();
-      var searchTextInput = $(event.target.parentElement).find('input[name="searchText"]')[0];
-      console.log(searchTextInput);
-      searchImages(searchTextInput.value);
-    });
+  //  $('button.search').on('click', function(event){
+    //  event.preventDefault();
+  //    var searchTextInput = $(event.target.parentElement).find('input[name="searchText"]')[0];
+  //    console.log(searchTextInput);
+  //    searchImages(searchTextInput.value);
+  //  });
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
