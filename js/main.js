@@ -14,7 +14,7 @@ $(document).on('ready', function(){
         tagmode: "any",
         format: "json"
       })
-        .done(function( data ) {
+        .done(function(data) {
           $.each( data.items, function( i, item ) {
           //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
             var image = item.media.m;
@@ -35,13 +35,12 @@ $(document).on('ready', function(){
     }();
 
 
-    $( "#flickr-button" ).click(function() {
-    event.preventDefault();  // prevent button from submitting
-
-    var tagName = document.getElementById('flickr-tag').value;  // get value of Flicker search input field
-
-    searchImages(tagName);  // execute searchImages function
-  });
+    $('button.search').on('click', function(event){
+      event.preventDefault();
+      var searchTextInput = $(event.target.parentElement).find('input[name="searchText"]')[0];
+      console.log(searchTextInput);
+      searchImages(searchTextInput.value);
+    });
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
