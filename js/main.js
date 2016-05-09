@@ -23,13 +23,10 @@ $(document).on('ready', function(){
             var description = item.description;
             var author = item.author;
             var link = item.link;
-
-            //$( "<img>").append("<div class='col-xs-4'");
-
-            //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-
-            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
-
+            var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+            var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
+            var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
+            var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
           });
         });
     })();
