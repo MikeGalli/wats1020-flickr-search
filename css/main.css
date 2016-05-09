@@ -4,8 +4,8 @@
 
 /* Enable these styles if you wish to go into a grid layout.*/
 ul#images li {
-    width: 120px;
-    height: auto;
+    width: 30%;
+    height: 200px;
     display: inline-block;
     position: relative;
     float: left;
@@ -13,15 +13,15 @@ ul#images li {
 
 ul#images li img {
     display: inline-block;
-    width: 100%;
+    width: 40%;
     height: auto;
 }
 
-ul#images li button {
+/*ul#images li button {
     display: inline-block;
 }
 
-/*--- End of grid layout styles. */
+--- End of grid layout styles. */
 
 ul#images {
     list-style-type: none;
