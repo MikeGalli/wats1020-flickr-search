@@ -7,32 +7,48 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    (function(tags) {
+var searchImages = "";
+
+     searchImages = function(tags) {
       var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-      $.getJSON( flickerAPI, {
+      $.getJSON(flickerAPI, {
         tags: tags,
         tagmode: "any",
         format: "json"
-      })
-        .done(function( data ) {
+      }).done(function(data) {
+        $('#images').empty();
+        $('h1.search-title').first()[0].innerHTML = "Search for: " + tags;
           $.each( data.items, function( i, item ) {
-          //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+            var newListItem = $("<li>");
             var image = item.media.m;
             var title = item.title;
             var date_taken = item.date_taken;
             var description = item.description;
             var author = item.author;
             var link = item.link;
+            var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+            var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
+            var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
+            var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
 
-            //$( "<img>").append("<div class='col-xs-4'");
-
-            //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-
-            $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
-
+          //  image.appendTo(newListItem);
+          //  title.appendTo(newListItem);
+          //  date_taken.appendTo(newListItem);
+        //    description.appendTo(newListItem);
+          //  author.appendTo(newListItem);
+          //  link.appendTo(newListItem);
+        console.log(newListItem);
           });
         });
-    })();
+    }();
+
+
+    $('button.search').on('click', function(event){
+      event.preventDefault();
+      var searchTextInput = $(event.target.parentElement).find('input[name="searchText"]')[0];
+      console.log(searchTextInput);
+      searchImages(searchTextInput.value);
+    });
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
