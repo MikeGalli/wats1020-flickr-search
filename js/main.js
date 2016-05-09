@@ -7,29 +7,41 @@
 // Allow users to click the images to see a larger version with more information.
 $(document).on('ready', function(){
     // Place your code here, inside the document ready handler.
-    (function(tags) {
-      var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-      $.getJSON( flickerAPI, {
+    var searchImages = function(tags) {
+      var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+      console.log(tags) + "tags";
+      $('#images').innerHTML = '<li class="search-throbber">Searching...</li>';
+      $.getJSON( flickrAPI, {
         tags: tags,
         tagmode: "any",
         format: "json"
-      })
-        .done(function( data ) {
-          $.each( data.items, function( i, item ) {
-          //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-            var image = item.media.m;
-            var title = item.title;
-            var date_taken = item.date_taken;
-            var description = item.description;
-            var author = item.author;
-            var link = item.link;
-            var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
-            var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
-            var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
-            var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
-          });
+      }).done(function( data ) {
+        $('#images').empty();
+        $('h1.search-title').first()[0].innerHTML = "Search for: " + tags;
+        $.each( data.items, function( i, item ) {
+          var newListItem = $("<li>")
+          // If you're not doing the modal, then show info about the image.
+          var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+          var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
+          var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
+          var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
+
+          // Button only needed if you're doing the modal
+          var newButton = $("<button class='btn btn-sm btn-primary'>enlarge</button>").attr({
+            'data-title': item.title,
+            'data-toggle': "modal",
+            'data-target': "#infoModal",
+            'data-imgsrc': item.media.m,
+            'data-description': item.description,
+            'type': "button"
+          }).appendTo(newListItem);
+          newListItem.appendTo( "#images" );
+          if ( i === 15 ) {
+            return false;
+          }
         });
-    })();
+      });
+    };
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
