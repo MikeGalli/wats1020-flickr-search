@@ -4,16 +4,16 @@
 
 /* Enable these styles if you wish to go into a grid layout.*/
 ul#images ul {
-    width: 20%;
-    height: 200px;
-    display: inline-block;
+    width: 26%;
+    height: 500px;
     position: relative;
     float: left;
+    overflow: scroll;
 }
 
 ul#images li img {
     display: inline-block;
-    width: 40%;
+    width: 100%;
     height: auto;
 }
 
@@ -21,7 +21,11 @@ ul#images ul li {
     display: inline-block;
 }
 
---- End of grid layout styles. */
+ul#images li button {
+    display: inline-block;
+}
+
+/*--- End of grid layout styles. */
 
 ul#images {
     list-style-type: none;
