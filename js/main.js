@@ -26,7 +26,7 @@ $(document).on('ready', function(){
             $( "#images" ).append( "<ul><li>" + "Title: " + title + "</li><li>" + "Date taken: "+ date_taken + "</li><li>" + "Description: "+ description + "</li><li>" + "Author: "+ author + "</li><li>" + "Link: "+ link + "</li></ul>");
           });
         });
-    //});
+    };
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
