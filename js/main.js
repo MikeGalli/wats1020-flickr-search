@@ -15,7 +15,7 @@ $(document).on('ready', function(){
         format: "json"
       }).done(function(data) {
           $.each( data.items, function( i, item ) {
-            var newListItem = $("<li>")
+            var newListItem = $("<li>");
           //  $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
             var image = item.media.m;
             var title = item.title;
