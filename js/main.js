@@ -22,12 +22,17 @@ $(document).on('ready', function(){
             var description = item.description;
             var author = item.author;
             var link = item.link;
-            image.appendTo(newListItem);
-            title.appendTo(newListItem);
-            date_taken.appendTo(newListItem);
-            description.appendTo(newListItem);
-            author.appendTo(newListItem);
-            link.appendTo(newListItem);
+            var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+            var newDate = $('<p class="image-date">').text(item.date_taken).appendTo(newListItem);
+            var newDescription = $('<p class="image-description">').html(item.description).appendTo(newListItem);
+            var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
+
+          //  image.appendTo(newListItem);
+          //  title.appendTo(newListItem);
+          //  date_taken.appendTo(newListItem);
+        //    description.appendTo(newListItem);
+          //  author.appendTo(newListItem);
+          //  link.appendTo(newListItem);
         console.log(newListItem);
           });
         });
