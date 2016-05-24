@@ -2,39 +2,26 @@
    Author's custom styles
    ========================================================================== */
 
-/* Enable these styles if you wish to go into a grid layout. */
-
-
-ul#images ul {
-    width: 26%;
-    height: 500px;
+/* Enable these styles if you wish to go into a grid layout.*/
+ul#images li {
+    width: 120px;
+    height: auto;
+    display: inline-block;
     position: relative;
     float: left;
-    overflow: scroll;
 }
-
 ul#images li img {
     display: inline-block;
     width: 100%;
     height: auto;
 }
-
-ul#images ul li {
+ul#images li button {
     display: inline-block;
 }
-
-
 /*--- End of grid layout styles. */
 
 ul#images {
     list-style-type: none;
-}
-
-ul#images ul {
-    list-style-type: none;
-    background-color: #008CBA;
-    margin: 20px;
-    padding: 10px;
 }
 
 ul#images .placeholder {
